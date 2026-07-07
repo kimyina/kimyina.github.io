@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>2D LiDAR SLAM Localization | Yina Kim</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <main class="page detail-page">
+      <nav class="top-links" aria-label="Project navigation">
+        <a href="../index.html#projects">Back to Projects</a>
+        <a href="../index.html">Home</a>
+      </nav>
+
+      <h1>2D LiDAR SLAM Localization</h1>
+      <p class="meta">Supervised Individual Research Project | Sookmyung Women's University | 2025</p>
+
+      <figure class="hero-image">
+        <img src="../assets/projects/slam-thumb.jpg" alt="TurtleBot3 Burger with LiDAR MID360">
+      </figure>
+
+      <div class="image-grid">
+        <img src="../assets/projects/slam-cloud.jpg" alt="Point cloud map visualization">
+        <img src="../assets/projects/slam-map-1.jpg" alt="SLAM mapping result">
+        <img src="../assets/projects/slam-map-2.jpg" alt="Occupancy grid map">
+        <img src="../assets/projects/slam-map-3.jpg" alt="Navigation map output">
+      </div>
+
+      <section class="section">
+        <p>
+          This project focused on autonomous robot localization using a TurtleBot3
+          Burger, ROS 2 Jazzy, Ubuntu 24.04, and LiDAR MID360. I implemented
+          LiDAR-based 2D SLAM and path planning in part of a department building.
+        </p>
+        <p>
+          During the experiments, the generated map failed to remain fixed and
+          rotated due to instability in IMU-related pose estimation. I diagnosed
+          the issue and improved mapping stability by modifying the
+          <code>tracking_frame</code> configuration in Cartographer.
+        </p>
+        <p>
+          Through this experience, I learned that understanding the relationship
+          between sensor frames, pose estimation, and mapping results is more
+          important than simply running an algorithm. I also handed over the
+          generated map and Nav2 pipeline to the simulation team, supporting smooth
+          follow-up simulation and validation work.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

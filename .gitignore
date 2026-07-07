@@ -1,0 +1,12 @@
+# Private source materials. Do not publish these to GitHub Pages.
+/[[]김인아[]] CV.pdf
+/[[]김인아[]] Portfolio.pdf
+/[[]김인아[]] 성적증명서.pdf
+/[[]김인아[]] 자기소개서 및 학업계획서.pdf
+/김인아_CV.docx
+
+# Generated/private working artifacts that are not linked from the site.
+/assets/yina-kim-cv.html
+/assets/yina-kim-cv.pdf
+/assets/YinaKim_Portfolio.pdf
+/assets/*.png
