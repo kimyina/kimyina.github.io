@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 328" role="img" aria-labelledby="title desc">
+  <title id="title">KiCad L298N motor driver PCB design</title>
+  <desc id="desc">A stylized green PCB layout with traces, pads, and L298N labeling.</desc>
+  <rect width="640" height="328" fill="#f7f6f3"/>
+  <rect x="58" y="34" width="524" height="260" rx="16" fill="#174f3a"/>
+  <rect x="76" y="52" width="488" height="224" rx="10" fill="#1f6b4a"/>
+  <g fill="none" stroke="#e8c65a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M130 102h96v48h90"/>
+    <path d="M130 226h112v-44h66"/>
+    <path d="M330 108h82v-34h70"/>
+    <path d="M330 204h92v48h68"/>
+    <path d="M410 152h82"/>
+    <path d="M184 152h72"/>
+  </g>
+  <g fill="#f2df9a" stroke="#fff2bf" stroke-width="3">
+    <circle cx="112" cy="102" r="15"/>
+    <circle cx="112" cy="226" r="15"/>
+    <circle cx="510" cy="74" r="15"/>
+    <circle cx="516" cy="252" r="15"/>
+    <circle cx="516" cy="152" r="15"/>
+    <circle cx="164" cy="152" r="15"/>
+  </g>
+  <rect x="258" y="112" width="108" height="92" rx="8" fill="#202522"/>
+  <rect x="276" y="130" width="72" height="56" rx="4" fill="#343a36"/>
+  <g fill="#d9d7ce">
+    <rect x="244" y="124" width="14" height="8" rx="2"/>
+    <rect x="244" y="148" width="14" height="8" rx="2"/>
+    <rect x="244" y="172" width="14" height="8" rx="2"/>
+    <rect x="366" y="124" width="14" height="8" rx="2"/>
+    <rect x="366" y="148" width="14" height="8" rx="2"/>
+    <rect x="366" y="172" width="14" height="8" rx="2"/>
+  </g>
+  <g fill="#f7f6f3" font-family="Pretendard, Arial, sans-serif" text-anchor="middle">
+    <text x="312" y="157" font-size="24" font-weight="700">L298N</text>
+    <text x="320" y="245" font-size="22" font-weight="650">KiCad PCB Design</text>
+  </g>
+  <g fill="#93e0b8">
+    <circle cx="206" cy="78" r="5"/>
+    <circle cx="228" cy="78" r="5"/>
+    <circle cx="250" cy="78" r="5"/>
+    <circle cx="390" cy="250" r="5"/>
+    <circle cx="412" cy="250" r="5"/>
+    <circle cx="434" cy="250" r="5"/>
+  </g>
+</svg>
