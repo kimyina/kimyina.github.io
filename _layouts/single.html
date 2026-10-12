@@ -1,0 +1,9 @@
+---
+layout: default
+---
+<article class="document-page">
+  {% if page.categories.size > 0 %}<p class="document-breadcrumb">{{ page.categories | join: ' · ' }}</p>{% endif %}
+  <h1>{{ page.title | escape }}</h1>
+  {% if page.date %}<p class="document-date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y.%m.%d' }}</time></p>{% endif %}
+  <div class="document-content">{{ content }}</div>
+</article>

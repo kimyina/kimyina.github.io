@@ -1,0 +1,59 @@
+locale: ko-KR
+title: Yina Kim
+name: Yina Kim
+description: Studying HRI and exploring ideas in robotics.
+url: "https://kimyina.github.io"
+baseurl: ""
+repository: kimyina/kimyina.github.io
+
+include: ["_pages"]
+paginate: 10
+paginate_path: /page:num/
+timezone: Asia/Seoul
+
+author:
+  name: Yina Kim
+  bio: "Studying HRI and exploring ideas in robotics."
+  location: Seoul, Korea
+  links:
+    - label: GitHub
+      icon: fab fa-fw fa-github
+      url: "https://github.com/kimyina"
+    - label: LinkedIn
+      icon: fab fa-fw fa-linkedin
+      url: "https://www.linkedin.com/in/kimyinaaa/"
+
+footer:
+  links:
+    - label: GitHub
+      icon: fab fa-fw fa-github
+      url: "https://github.com/kimyina"
+
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      share: false
+      related: true
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed

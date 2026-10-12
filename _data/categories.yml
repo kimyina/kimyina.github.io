@@ -1,0 +1,10 @@
+- name: Papers
+  description: 읽은 논문 리뷰와 흥미로운 연구 소개
+- name: Datasets
+  description: 데이터셋 구성과 활용 방법
+- name: Ideas
+  description: 떠오른 질문과 해보고 싶은 연구
+- name: Study
+  description: 수업 내용과 개념 정리
+- name: Projects
+  description: 직접 수행한 연구와 작성한 논문, 구현·실험 기록

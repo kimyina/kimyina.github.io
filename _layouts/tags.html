@@ -1,0 +1,6 @@
+---
+layout: archive
+---
+{% assign tags = site.tags | sort %}
+<p id="tag-selection-hint" hidden>왼쪽 태그 목록에서 태그를 선택해 주세요.</p>
+{% for tag in tags %}<section class="archive-group" data-tag="{{ tag[0] | slugify }}"><h2 id="{{ tag[0] | slugify }}">{{ tag[0] | escape }}</h2>{% for post in tag[1] %}{% include archive-single.html %}{% endfor %}</section>{% else %}<p>등록된 태그가 없습니다.</p>{% endfor %}

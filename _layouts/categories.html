@@ -1,0 +1,16 @@
+---
+layout: archive
+---
+<p id="category-selection-hint" hidden>왼쪽 목록에서 카테고리를 선택해 주세요.</p>
+{% for category in site.data.categories %}
+<section class="archive-group" data-category="{{ category.name | slugify }}">
+  <h2 id="{{ category.name | slugify }}">{{ category.name | escape }}</h2>
+  <p>{{ category.description | escape }}</p>
+  {% assign category_posts = site.categories[category.name] %}
+  {% for post in category_posts %}
+    {% include archive-single.html %}
+  {% else %}
+    <p class="archive-empty">아직 등록된 글이 없습니다.</p>
+  {% endfor %}
+</section>
+{% endfor %}

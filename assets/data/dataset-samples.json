@@ -1,0 +1,514 @@
+{
+  "ucy-zara01": {
+    "file": "crowds_zara01.vsp",
+    "unit": "pixel",
+    "timeLabel": "s",
+    "sourceRows": 1520,
+    "note": "원 주석 전체: 148명 · 1,520 control points. 선택 시점에는 그 프레임에 실제 주석된 점만 표시한다.",
+    "bounds": [
+      -361.0,
+      359.0,
+      -298.0,
+      231.0
+    ],
+    "fullBounds": [
+      -361.0,
+      359.0,
+      -298.0,
+      231.0
+    ],
+    "rows": 1358,
+    "start": 0.0,
+    "end": 360.56,
+    "bytes": 195230
+  },
+  "ucy-sgan": {
+    "file": "sgan_zara1_test.txt",
+    "unit": "file XY",
+    "timeLabel": "frame",
+    "note": "SGAN 전처리 test 파일 전체 5,153행. 1×는 25 frame/초이며 보통 10 frame마다 관측이 갱신된다. 원영상·VSP와의 ID/시간/좌표 정합은 하지 않았다.",
+    "bounds": [
+      -0.1395,
+      15.4806,
+      -0.3747,
+      12.3864
+    ],
+    "fullBounds": [
+      -0.1395,
+      15.4806,
+      -0.3747,
+      12.3864
+    ],
+    "rows": 872,
+    "start": 0,
+    "end": 9010,
+    "bytes": 281339,
+    "playbackUnitsPerSecond": 25
+  },
+  "bi3-cv": {
+    "file": "cv.json",
+    "unit": "m",
+    "timeLabel": "s",
+    "note": "9,907행 전체 · 원본의 모든 유효 예측 단계 표시. 제외한 무효 경로 0개(시점별 합계). robot_prediction은 실행 계획과 구분한다.",
+    "bounds": [
+      -2.384,
+      2.0575,
+      -2.1508,
+      2.3816
+    ],
+    "fullBounds": [
+      -2.384,
+      2.0575,
+      -2.1508,
+      2.3816
+    ],
+    "rows": 9907,
+    "start": 0.0,
+    "end": 198.14062,
+    "bytes": 10372245
+  },
+  "bi3-hst": {
+    "file": "hst.json",
+    "unit": "m",
+    "timeLabel": "s",
+    "note": "9,738행 전체 · 원본의 모든 유효 예측 단계 표시. 제외한 무효 경로 0개(시점별 합계). robot_prediction은 실행 계획과 구분한다.",
+    "bounds": [
+      -2.3511,
+      2.0634,
+      -2.0659,
+      2.186
+    ],
+    "fullBounds": [
+      -2.3511,
+      2.0634,
+      -2.0659,
+      2.186
+    ],
+    "rows": 9738,
+    "start": 0.0,
+    "end": 194.773418,
+    "bytes": 10182022
+  },
+  "bi3-cohan": {
+    "file": "cohan.json",
+    "unit": "m",
+    "timeLabel": "s",
+    "note": "9,738행 전체 · 원본의 모든 유효 예측 단계 표시. 제외한 무효 경로 9,738개(시점별 합계). robot_prediction은 실행 계획과 구분한다.",
+    "bounds": [
+      -2.1609,
+      1.7492,
+      -1.8538,
+      1.9907
+    ],
+    "fullBounds": [
+      -83339025389.2784,
+      45722703.8005,
+      -56976876136.3428,
+      3765808091.5796
+    ],
+    "rows": 9738,
+    "start": 0.0,
+    "end": 194.781628,
+    "bytes": 16094550
+  },
+  "bi3-static": {
+    "file": "static.json",
+    "unit": "m",
+    "timeLabel": "s",
+    "note": "9,484행 전체 · 원본의 모든 유효 예측 단계 표시. 제외한 무효 경로 0개(시점별 합계). robot_prediction은 실행 계획과 구분한다.",
+    "bounds": [
+      -2.1794,
+      1.7099,
+      -1.9254,
+      1.8812
+    ],
+    "fullBounds": [
+      -2.1794,
+      1.7099,
+      -1.9254,
+      1.8812
+    ],
+    "rows": 9484,
+    "start": 0.0,
+    "end": 189.73166,
+    "bytes": 9932058
+  },
+  "bi3-blind": {
+    "file": "blind.json",
+    "unit": "m",
+    "timeLabel": "s",
+    "note": "9,997행 전체 · 원본의 모든 유효 예측 단계 표시. 제외한 무효 경로 0개(시점별 합계). robot_prediction은 실행 계획과 구분한다.",
+    "bounds": [
+      -2.3004,
+      1.9986,
+      -2.1533,
+      2.257
+    ],
+    "fullBounds": [
+      -2.3004,
+      1.9986,
+      -2.1533,
+      2.257
+    ],
+    "rows": 9997,
+    "start": 0.0,
+    "end": 199.93865,
+    "bytes": 10475642
+  },
+  "nav-scene1": {
+    "file": "1_robot_and_participants.csv",
+    "unit": "m",
+    "timeLabel": "s",
+    "note": "Scene 1 전체 2,498행. CSV 첫 timestamp를 0초로 표시. 영상은 Scene 1 RGB이며 타임라인을 자동 동기화하지 않는다. 이 CSV에는 예측 경로가 없다.",
+    "bounds": [
+      1.03,
+      11.27,
+      -1.94,
+      1.06
+    ],
+    "fullBounds": [
+      1.03,
+      11.27,
+      -1.94,
+      1.06
+    ],
+    "rows": 2498,
+    "start": 0.0,
+    "end": 249.698004,
+    "bytes": 769219
+  },
+  "nav-scene8": {
+    "file": "8_robot_and_participants.csv",
+    "unit": "m",
+    "timeLabel": "s",
+    "note": "Scene 8 전체 2,497행. CSV 첫 timestamp를 0초로 표시. 영상은 Scene 1 RGB이며 타임라인을 자동 동기화하지 않는다. 이 CSV에는 예측 경로가 없다.",
+    "bounds": [
+      1.01,
+      11.34,
+      -2.31,
+      1.21
+    ],
+    "fullBounds": [
+      1.01,
+      11.34,
+      -2.31,
+      1.21
+    ],
+    "rows": 2497,
+    "start": 0.0,
+    "end": 249.597923,
+    "bytes": 770192
+  },
+  "soc-dynamic": {
+    "file": "S2_000000.json",
+    "unit": "file XY",
+    "timeLabel": "s",
+    "localFrame": true,
+    "note": "파일의 모든 snapshot. 재생용으로 시간 오름차순 정렬했으며 원래 행 번호를 보존한다. 로봇 기준 상대 좌표로, 로봇 R은 (0, 0)에 표시한다. robot_pose와 섞거나 시점 사이의 전역 궤적을 연결하지 않는다. 평정은 예측 궤적이 아니다.",
+    "bounds": [
+      -4.5151,
+      4.5395,
+      -4.5128,
+      4.5419
+    ],
+    "fullBounds": [
+      -4.5151,
+      4.5395,
+      -4.5128,
+      4.5419
+    ],
+    "rows": 24,
+    "start": 0.0,
+    "end": 3.396885,
+    "bytes": 19904
+  },
+  "soc-inference": {
+    "file": "S1_000003.json",
+    "unit": "file XY",
+    "timeLabel": "s",
+    "localFrame": true,
+    "note": "파일의 모든 snapshot. 재생용으로 시간 오름차순 정렬했으며 원래 행 번호를 보존한다. 로봇 기준 상대 좌표로, 로봇 R은 (0, 0)에 표시한다. robot_pose와 섞거나 시점 사이의 전역 궤적을 연결하지 않는다. 평정은 예측 궤적이 아니다.",
+    "bounds": [
+      -4.5002,
+      4.5002,
+      -4.5006,
+      4.4998
+    ],
+    "fullBounds": [
+      -4.5002,
+      4.5002,
+      -4.5006,
+      4.4998
+    ],
+    "rows": 24,
+    "start": 0.0,
+    "end": 3.500279,
+    "bytes": 12106
+  },
+  "soc-labelled": {
+    "file": "A000350_L4.json",
+    "unit": "file XY",
+    "timeLabel": "s",
+    "localFrame": true,
+    "note": "파일의 모든 snapshot. 재생용으로 시간 오름차순 정렬했으며 원래 행 번호를 보존한다. 로봇 기준 상대 좌표로, 로봇 R은 (0, 0)에 표시한다. robot_pose와 섞거나 시점 사이의 전역 궤적을 연결하지 않는다. 평정은 예측 궤적이 아니다.",
+    "bounds": [
+      -3.602,
+      6.3518,
+      -8.9472,
+      0.6184
+    ],
+    "fullBounds": [
+      -3.602,
+      6.3518,
+      -8.9472,
+      0.6184
+    ],
+    "rows": 25,
+    "start": 0.0,
+    "end": 3.406532,
+    "bytes": 24207
+  },
+  "soc-interaction": {
+    "file": "S3I_000000.json",
+    "unit": "file XY",
+    "timeLabel": "s",
+    "localFrame": true,
+    "note": "파일의 모든 snapshot. 재생용으로 시간 오름차순 정렬했으며 원래 행 번호를 보존한다. 로봇 기준 상대 좌표로, 로봇 R은 (0, 0)에 표시한다. robot_pose와 섞거나 시점 사이의 전역 궤적을 연결하지 않는다. 평정은 예측 궤적이 아니다.",
+    "bounds": [
+      -4.5149,
+      4.5394,
+      -5.2245,
+      4.5418
+    ],
+    "fullBounds": [
+      -4.5149,
+      4.5394,
+      -5.2245,
+      4.5418
+    ],
+    "rows": 23,
+    "start": 0.0,
+    "end": 3.399309,
+    "bytes": 15835
+  },
+  "soc-rated-gap": {
+    "file": "A000908_L1.json",
+    "unit": "file XY",
+    "timeLabel": "s",
+    "localFrame": true,
+    "note": "파일의 모든 snapshot. 재생용으로 시간 오름차순 정렬했으며 원래 행 번호를 보존한다. 로봇 기준 상대 좌표로, 로봇 R은 (0, 0)에 표시한다. robot_pose와 섞거나 시점 사이의 전역 궤적을 연결하지 않는다. 평정은 예측 궤적이 아니다.",
+    "bounds": [
+      -5.8298,
+      5.06,
+      -5.8652,
+      7.8782
+    ],
+    "fullBounds": [
+      -5.8298,
+      5.06,
+      -5.8652,
+      7.8782
+    ],
+    "rows": 22,
+    "start": 0.0,
+    "end": 3.317971,
+    "bytes": 24380
+  },
+  "soc-rated-positive": {
+    "file": "A005654_L1.json",
+    "unit": "file XY",
+    "timeLabel": "s",
+    "localFrame": true,
+    "note": "파일의 모든 snapshot. 재생용으로 시간 오름차순 정렬했으며 원래 행 번호를 보존한다. 로봇 기준 상대 좌표로, 로봇 R은 (0, 0)에 표시한다. robot_pose와 섞거나 시점 사이의 전역 궤적을 연결하지 않는다. 평정은 예측 궤적이 아니다.",
+    "bounds": [
+      -11.2459,
+      2.3088,
+      -8.3497,
+      6.4304
+    ],
+    "fullBounds": [
+      -11.2459,
+      2.3088,
+      -8.3497,
+      6.4304
+    ],
+    "rows": 24,
+    "start": 0.0,
+    "end": 3.499319,
+    "bytes": 39237
+  },
+  "thor-sc3b": {
+    "file": "THOR-Magni_170522_SC3B_R1.csv",
+    "unit": "m",
+    "timeLabel": "s",
+    "bounds": [
+      -8.7724,
+      9.4869,
+      -3.8018,
+      3.609
+    ],
+    "fullBounds": [
+      -8.7724,
+      9.4869,
+      -3.8018,
+      3.609
+    ],
+    "wearer": "Helmet_6",
+    "tracker": "TB3",
+    "roles": {
+      "Helmet_10": "Visitors-Group 2",
+      "Helmet_5": "Carrier-Bucket",
+      "Helmet_1": "Carrier-Box",
+      "Helmet_2": "Carrier-Large Object Leader",
+      "Helmet_4": "Carrier-Large Object Follower",
+      "Helmet_8": "Visitors-Alone",
+      "Helmet_6": "Visitors-Group 2",
+      "DARKO_Robot": "Omnidirectional-Teleoperated",
+      "LO1": "Carried"
+    },
+    "sourceRows": 23967,
+    "missingCentroids": {
+      "Helmet_10": 11038,
+      "Helmet_5": 13782,
+      "Helmet_1": 9321,
+      "Helmet_2": 7450,
+      "Helmet_4": 17311,
+      "Helmet_8": 5907,
+      "Helmet_6": 13802,
+      "DARKO_Robot": 1277
+    },
+    "validGazeRows": 11638,
+    "sourceVideo": "Tobii3_170522_SC3B_R1_H6.mp4",
+    "note": "원 CSV의 모든 QTM 프레임. Centroid XY를 mm에서 m로 변환했다. 누락값은 보간하지 않았다. 눈 시선은 카메라 픽셀 좌표이며, 이동 평면의 위치나 머리 방향이 아니다.",
+    "rows": 23967,
+    "start": 0.01,
+    "end": 239.67,
+    "bytes": 8060269,
+    "webVideo": {
+      "frames": 6163,
+      "fps": 24.917,
+      "duration": 247.3411726933419,
+      "bytes": 25402652,
+      "audio": false
+    }
+  },
+  "thor-sc4b": {
+    "file": "THOR-Magni_300922_SC4B_R1.csv",
+    "unit": "m",
+    "timeLabel": "s",
+    "bounds": [
+      -4.5269,
+      6.4797,
+      -3.7353,
+      3.5763
+    ],
+    "fullBounds": [
+      -4.5269,
+      6.4797,
+      -3.7353,
+      3.5763
+    ],
+    "wearer": "Helmet_10",
+    "tracker": "TB2",
+    "roles": {
+      "DARKO_Robot": "Differential-Autonomous HRI Multimodal",
+      "Helmet_8": "Visitors-Alone HRI",
+      "Helmet_3": "Visitors-Alone HRI",
+      "Helmet_10": "Visitors-Alone HRI",
+      "Helmet_9": "Visitors-Alone HRI"
+    },
+    "sourceRows": 25019,
+    "missingCentroids": {
+      "DARKO_Robot": 1073,
+      "Helmet_8": 2391,
+      "Helmet_3": 2410,
+      "Helmet_10": 649,
+      "Helmet_9": 2941
+    },
+    "validGazeRows": 12450,
+    "sourceVideo": "Tobii2_300922_SC4B_R1_H10.mp4",
+    "note": "원 CSV의 모든 QTM 프레임. Centroid XY를 mm에서 m로 변환했다. 누락값은 보간하지 않았다. 눈 시선은 카메라 픽셀 좌표이며, 이동 평면의 위치나 머리 방향이 아니다.",
+    "rows": 25019,
+    "start": 0.01,
+    "end": 250.19,
+    "bytes": 8389944,
+    "webVideo": {
+      "frames": 6137,
+      "fps": 25.0,
+      "duration": 245.48,
+      "bytes": 23476347,
+      "audio": false
+    }
+  },
+  "thor-sc5": {
+    "file": "THOR-Magni_300922_SC5_R1.csv",
+    "unit": "m",
+    "timeLabel": "s",
+    "bounds": [
+      -4.9052,
+      8.3241,
+      -3.8744,
+      3.6823
+    ],
+    "fullBounds": [
+      -4.9052,
+      8.3241,
+      -3.8744,
+      3.6823
+    ],
+    "wearer": "Helmet_10",
+    "tracker": "TB2",
+    "roles": {
+      "DARKO_Robot": "Differential-Autonomous HRI Multimodal",
+      "Helmet_8": "Visitors-Alone",
+      "Helmet_3": "Visitors-Alone",
+      "Helmet_10": "Carrier-Storage Bin HRI",
+      "Helmet_9": "Visitors-Alone"
+    },
+    "sourceRows": 33927,
+    "missingCentroids": {
+      "DARKO_Robot": 5063,
+      "Helmet_8": 3420,
+      "Helmet_3": 4913,
+      "Helmet_10": 5096,
+      "Helmet_9": 9672
+    },
+    "validGazeRows": 13428,
+    "sourceVideo": "Tobii2_300922_SC5_R1_H10.mp4",
+    "note": "원 CSV의 모든 QTM 프레임. Centroid XY를 mm에서 m로 변환했다. 누락값은 보간하지 않았다. 눈 시선은 카메라 픽셀 좌표이며, 이동 평면의 위치나 머리 방향이 아니다.",
+    "rows": 33927,
+    "start": 0.01,
+    "end": 339.27,
+    "bytes": 10550916,
+    "webVideo": {
+      "frames": 6457,
+      "fps": 25.0,
+      "duration": 258.28,
+      "bytes": 25672109,
+      "audio": false
+    }
+  },
+  "trajnet-wildtrack": {
+    "file": "wildtrack.ndjson · official bundled train",
+    "unit": "m",
+    "timeLabel": "s",
+    "bounds": [
+      -3.0,
+      8.98,
+      -8.99,
+      25.74
+    ],
+    "fullBounds": [
+      -3.0,
+      8.98,
+      -8.99,
+      25.74
+    ],
+    "sourceRows": 9518,
+    "note": "공식 저장소에 포함된 WILDTRACK 학습 파일의 모든 관측 위치. 예측 좌표는 포함하지 않는다.",
+    "rows": 400,
+    "start": 0,
+    "end": 199.5,
+    "bytes": 466977
+  }
+}

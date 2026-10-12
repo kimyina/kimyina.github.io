@@ -1,0 +1,16 @@
+---
+layout: single
+title: 게시글로 이동
+permalink: /datasets/
+sitemap: false
+---
+<p>데이터셋 정리는 게시글로 옮겼습니다. <a href="{{ '/notes/social-navigation-datasets/' | relative_url }}">소셜 내비게이션 데이터셋, 이렇게 생겼다</a></p>
+<script>
+(() => {
+  const known = ['eth-ucy','bi3','navwareset','socnav2'];
+  const raw = location.hash.slice(1).replace('dataset=','').replace('note-','');
+  const key = raw === 'eth' ? 'eth-ucy' : raw;
+  const fragment = known.includes(key) ? '#' + key : '';
+  location.replace({{ '/notes/social-navigation-datasets/' | relative_url | jsonify }} + fragment);
+})();
+</script>

@@ -10,3 +10,9 @@
 /assets/yina-kim-cv.pdf
 /assets/YinaKim_Portfolio.pdf
 /assets/*.png
+
+# Jekyll build artifacts.
+/_site/
+/.jekyll-cache/
+/.sass-cache/
+.jekyll-metadata

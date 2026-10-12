@@ -1,0 +1,25 @@
+<aside class="site-sidebar" aria-label="프로필과 글 탐색">
+  <a class="sidebar-name" href="{{ '/' | relative_url }}">Yina Kim</a>
+  <p class="sidebar-intro">Studying HRI and exploring ideas in robotics.</p>
+  <div class="sidebar-contact"><a href="https://github.com/kimyina">GitHub</a><a href="https://www.linkedin.com/in/kimyinaaa/">LinkedIn</a></div>
+  <nav class="sidebar-navigation" aria-label="기록 탐색">
+    <div class="sidebar-category-group">
+      <p class="sidebar-group-title"><a href="{{ '/' | relative_url }}"{% if page.layout == 'home' %} aria-current="page"{% endif %}>Notes</a></p>
+      <ul class="sidebar-tree">
+        {% for category in site.data.categories %}
+        <li><a href="{{ '/categories/' | relative_url }}#{{ category.name | slugify }}">{{ category.name | escape }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <details class="sidebar-tags">
+      <summary>Tags</summary>
+      <ul class="sidebar-tag-cloud">
+        {% assign sidebar_tags = site.tags | sort %}
+        {% for tag in sidebar_tags %}
+        <li><a href="{{ '/tags/' | relative_url }}#{{ tag[0] | slugify }}">{{ tag[0] | escape }}</a></li>
+        {% endfor %}
+      </ul>
+    </details>
+  </nav>
+  <nav id="document-toc" aria-label="현재 글 목차"></nav>
+</aside>
