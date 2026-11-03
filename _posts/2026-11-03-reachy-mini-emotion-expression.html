@@ -1,0 +1,307 @@
+---
+layout: single
+title: Reachy Mini Emotion Expression
+permalink: /notes/reachy-mini-emotion-expression/
+categories: [Papers]
+tags: [HRI, Reachy Mini, Emotion Expression]
+description: "Reachy Mini 감정 표현 지각 연구(Rogel et al. 2026) 정리, 부정 감정 인식률과 negativity bias, ELEGNT(Hu et al. 2025), Wolf et al. 2021 liking gap"
+dataset_article: true
+---
+<!-- Sources read in full: arXiv:2605.12786v1; arXiv:2501.12493; Rozin & Royzman 2001; Wolf, Nafe & Tomasello 2021.
+     Paper figures/tables are cropped from the originals. GEW image: Wikimedia Commons, JurijFedorov, CC BY-SA 4.0.
+     Laban effort graph: Wikimedia Commons, Jeffrey Scott Longstaff, CC BY-SA 3.0.
+     amusement.gif: MuJoCo render of Pollen's public emotion library (laughing1), not a study stimulus.
+     exact-chart SVG: redrawn from Table I exact column (choice-based).
+     Footnote markup follows social-navigation-datasets.html so dataset-article.js shows tooltips. -->
+<style>
+.toc-box{background:#f6f6f6;border:1px solid #e3e3e3;border-radius:10px;padding:16px 20px;margin:22px 0 34px}
+.toc-box h2{font-size:15px;margin:0 0 10px!important}
+.toc-box ul{list-style:none;margin:0;padding:0}
+.toc-box li{margin:4px 0;font-size:14px}
+.two-col{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px;align-items:start;margin:12px 0 18px}
+.two-col.even{grid-template-columns:1fr 1fr}
+.two-col figure{margin:0}
+.two-col img{width:100%;height:auto}
+.two-col .gif{border:1px solid #eee;border-radius:8px}
+.dataset-article figcaption{font-size:12px;color:#666;margin-top:6px;line-height:1.6}
+.dataset-article figcaption small{display:block;font-size:11px;color:#999;margin-top:2px}
+.meta-box{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 18px;background:#fafafa;border:1px solid #e8e8e8;border-radius:10px;padding:14px 18px;margin:14px 0 22px;font-size:13px}
+.meta-box div{min-width:0}
+.meta-box dt{font-size:11px;color:#888;font-weight:600;letter-spacing:.02em}
+.meta-box dd{margin:2px 0 0;color:#222;line-height:1.6}
+.spec-table,.mini-table,.compare-table,.tech-table{border-collapse:collapse;font-size:13.5px;margin:10px 0 18px;width:100%}
+.spec-table th,.spec-table td,.mini-table th,.mini-table td,.compare-table th,.compare-table td,.tech-table th,.tech-table td{border-bottom:1px solid #e3e3e3;padding:8px 12px;text-align:left;vertical-align:top;line-height:1.6}
+.spec-table th,.mini-table th,.compare-table th,.tech-table th{font-weight:600;background:#fafafa}
+.spec-table th{width:7em}
+.compare-table th:first-child{width:8em}
+.mini-table{width:auto}
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:14px 0 22px;list-style:none;padding:0}
+.flow li{border:1px solid #ddd;border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.6;position:relative;background:#fff}
+.flow li small{display:block;font-size:11px;color:#888;margin-bottom:4px}
+.flow li strong{display:block;font-size:14px;margin-bottom:4px}
+.flow li+li::before{content:"→";position:absolute;left:-12px;top:14px;color:#999;font-size:13px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0 22px}
+.card{border:1px solid #ddd;border-radius:10px;padding:14px 16px;font-size:13.5px;line-height:1.7}
+.card strong{display:block;font-size:14px;margin-bottom:4px}
+.card .tag{display:inline-block;font-size:11px;padding:1px 8px;border-radius:999px;margin-bottom:8px;border:1px solid #bbb;color:#333}
+.card .tag.yes{background:#222;color:#fff;border-color:#222}
+.exact-chart{width:100%;height:auto;margin:14px 0 6px}
+.dataset-article .uses dt{font-weight:600}
+.dataset-article .uses dl>div,.dataset-article .rozin dl>div{grid-template-columns:11em minmax(0,1fr)}
+@media(max-width:700px){.two-col,.two-col.even,.cards{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}.meta-box{grid-template-columns:1fr 1fr}}
+</style>
+<div class="dataset-article" data-sequence-base="{{ '/assets/data/sequences/' | relative_url }}" data-sequence-version="20261103-reachy">
+<p class="article-lead">2026년 11월 연구실 세미나에서 Reachy Mini를 소개하면서 읽은 논문과 자료를 정리했다.</p>
+
+<nav aria-label="글 목차" class="toc-box">
+<h2 id="contents">목차</h2>
+<ul>
+<li><a href="#platform">Reachy Mini</a></li>
+<li><a href="#rogel2026">Rogel et al. 2026 · 감정 표현 지각</a></li>
+<li><a href="#negativity">부정 감정이 더 잘 읽힌 결과와 negativity bias</a></li>
+<li><a href="#elegnt">Hu et al. 2025 · ELEGNT</a></li>
+<li><a href="#likinggap">추천받은 논문 · Wolf et al. 2021 · liking gap</a></li>
+<li><a href="#methods">저장해 둘 연구 기법</a></li>
+<li><a href="#closing">마무리하며</a></li>
+</ul>
+</nav>
+
+<section class="dataset-section"><h2 id="platform"><span aria-hidden="true" class="dataset-number">01</span>Reachy Mini</h2>
+<div class="two-col">
+<div>
+<p>Reachy Mini는 Pollen Robotics와 Hugging Face가 만든 탁상용 오픈소스 로봇으로 Python SDK와 MuJoCo 시뮬레이션과 감정 동작 라이브러리가 공개되어 있어서 실기 없이도 동작을 미리 돌려 볼 수 있다.</p>
+<table class="spec-table">
+<tr><th>움직임</th><td>6자유도 머리 · 안테나 2개 · 회전하는 몸통</td></tr>
+<tr><th>입출력</th><td>카메라 · 마이크 4개 · 스피커</td></tr>
+<tr><th>모델</th><td>Lite(호스트 PC 연결) $399 · Wireless(온보드 컴퓨터와 배터리) $499</td></tr>
+<tr><th>소프트웨어</th><td>Python SDK · MuJoCo 시뮬레이션 · 감정 동작 라이브러리 · 공유 앱</td></tr>
+</table>
+<p><a href="https://huggingface.co/docs/reachy_mini/index">공식 문서</a> · <a href="https://github.com/pollen-robotics/reachy_mini">reachy_mini 저장소</a> · <a href="https://huggingface.co/datasets/pollen-robotics/reachy-mini-emotions-library">감정 동작 라이브러리</a> · <a href="https://huggingface.co/spaces/RemiFabre/feeling_machine">feeling_machine 데모</a></p>
+</div>
+<figure><img class="gif" alt="Reachy Mini의 amusement 동작 시뮬레이션" loading="lazy" src="{{ '/assets/images/reachy-mini/amusement.gif' | relative_url }}" width="600" height="600"><figcaption>감정 라이브러리의 laughing1 동작을 MuJoCo로 돌린 것</figcaption></figure>
+</div>
+<h3>Reachy Mini를 쓴 연구</h3>
+<table class="compare-table">
+<thead><tr><th>연구</th><th>무엇을 했나</th><th>Reachy Mini의 역할</th></tr></thead>
+<tbody>
+<tr><td><a href="https://arxiv.org/abs/2605.12786v1">Rogel et al. 2026</a></td><td>미리 만든 표현 영상을 보여 주고 어떤 감정으로 읽히는지와 로봇 인상이 어떻게 바뀌는지 측정 (02절)</td><td>연구 대상</td></tr>
+<tr><td><a href="https://journals.lib.sfu.ca/index.php/ugrs/article/view/7758">SFU 학부 심포지엄 2026</a></td><td>표정과 제스처를 인식해 VLM<sup class="note-ref"><a aria-label="주석 1: VLM" href="#note-vlm" id="note-vlm-ref" role="doc-noteref">[1]</a></sup>으로 반응 동작을 만들고 조종과 자율을 참가자가 구별하는지 비교</td><td>연구 대상</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2610.16967">ProAgent 2026</a></td><td>상황을 관찰하다 필요한 순간에 끼어드는 에이전트의 실기 평가</td><td>시연 플랫폼</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2610.08933">Human-agent-robot teaming 2026</a></td><td>사람과 에이전트와 로봇이 함께 이상 상황을 분류하는 프로토타입</td><td>승무원용 인터페이스</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2601.22381">Lantern 2026</a> 등</td><td>소셜 로봇 플랫폼이나 교육용 로봇 논문에서 값싸고 표현이 가능한 플랫폼으로 인용</td><td>예시 언급</td></tr>
+</tbody>
+</table>
+<p>표만 봐도 Reachy Mini가 실제 연구 대상이 된 것은 두 편이고 그중 동료 심사를 거친 학술 논문은 아직 없다. 대면 상호작용을 측정한 연구도 없다.</p>
+</section>
+
+<section class="dataset-section"><h2 id="rogel2026"><span aria-hidden="true" class="dataset-number">02</span>Rogel et al. 2026 · 감정 표현 지각</h2>
+<p class="publication-line"><a href="https://arxiv.org/abs/2605.12786v1">Rogel, Yadollahi &amp; Laban. Emotional Expression in Low-Degrees-of-Freedom Robots: Assessing Perception with Reachy Mini</a></p>
+<dl class="meta-box">
+<div><dt>출처</dt><dd>arXiv:2605.12786v1 · 2026.05</dd></div>
+<div><dt>소속</dt><dd>Georgia Tech · Lancaster · Ben-Gurion</dd></div>
+<div><dt>로봇</dt><dd>Reachy Mini</dd></div>
+<div><dt>참가자</dt><dd>100명 · Prolific<sup class="note-ref"><a aria-label="주석 2: Prolific" href="#note-prolific" id="note-prolific-ref" role="doc-noteref">[2]</a></sup> · 미국과 영국</dd></div>
+<div><dt>설계</dt><dd>온라인 피험자 내 · 영상 10개</dd></div>
+<div><dt>평가</dt><dd>GEW<sup class="note-ref"><a aria-label="주석 3: GEW" href="#note-gew" id="note-gew-ref" role="doc-noteref">[3]</a></sup> · VA 슬라이더<sup class="note-ref"><a aria-label="주석 4: valence · arousal" href="#note-va" id="note-va-ref" role="doc-noteref">[4]</a></sup> · 사회적 평가 7점</dd></div>
+</dl>
+<p>저자들은 감정 표현 연구가 표현 채널이 풍부한 휴머노이드에 쏠려 있어서 표현이 희박한 로봇에서 무엇이 읽히는지는 체계적으로 조사되지 않았다고 보고 Reachy Mini를 그 시험대로 삼는다. 의도한 감정이 얼마나 인식되는지와 정확한 이름 대신 valence와 arousal 수준의 의미는 전달되는지 그리고 표현이 로봇에 대한 사회적 평가를 바꾸는지가 세 질문이다.</p>
+
+<h3>설계</h3>
+<div class="two-col">
+<div class="dataset-use"><dl>
+<div><dt>자극</dt><dd>약 10초짜리 영상 10개로 동작과 비언어 소리가 함께 들어 있다. 동작은 Pollen 데모 모델이 Laban Movement Analysis<sup class="note-ref"><a aria-label="주석 5: Laban Movement Analysis" href="#note-lma" id="note-lma-ref" role="doc-noteref">[5]</a></sup>의 요소를 자유도에 대응시켜 생성했으며 긍정은 Joy·Amusement·Love·Pleasure·Interest이고 부정은 Shame·Fear·Disgust·Anger·Sadness다</dd></div>
+<div><dt>코딩</dt><dd>의도 감정과 선택 감정을 valence × arousal 네 사분면에 놓고 exact·quadrant·valence·arousal 네 수준에서 일치를 센다. 의도가 Joy인데 Amusement를 고르면 exact는 0이고 나머지 셋은 1이 된다</dd></div>
+<div><dt>통계</dt><dd>참가자 단위로 표준오차를 묶은 로지스틱 모형과 선형 모형 그리고 valence와 arousal을 함께 넣은 GEE<sup class="note-ref"><a aria-label="주석 6: GEE" href="#note-gee" id="note-gee-ref" role="doc-noteref">[6]</a></sup>. 사전 검정력 분석은 dz<sup class="note-ref"><a aria-label="주석 7: dz" href="#note-dz" id="note-dz-ref" role="doc-noteref">[7]</a></sup> = .30 기준으로 약 90명을 요구했다</dd></div>
+</dl></div>
+<figure><img alt="Reachy Mini의 sadness, amusement, anger 동작을 세 장면씩 보여 주는 논문 Figure 1" loading="lazy" src="{{ '/assets/images/reachy-mini/rogel2026-fig1.png' | relative_url }}" width="878" height="1493"><figcaption>Fig. 1 · 위에서부터 sadness · amusement · anger</figcaption></figure>
+</div>
+<h3>한 시행의 흐름</h3>
+<ol class="flow">
+<li><small>1</small><strong>영상 시청</strong>약 10초 · 소리 포함</li>
+<li><small>2</small><strong>GEW 선택</strong>감정 가족 하나와 강도를 고른다</li>
+<li><small>3</small><strong>VA 슬라이더</strong>valence와 arousal을 0–100으로</li>
+<li><small>4</small><strong>사회적 평가</strong>warm · likeable · trustworthy · friendly / alive · natural · real · humanlike를 7점으로<sup class="note-ref"><a aria-label="주석 8: RoSAS · HRIES" href="#note-rosas" id="note-rosas-ref" role="doc-noteref">[8]</a></sup></li>
+</ol>
+<div class="two-col even">
+<figure><img alt="Geneva Emotion Wheel" loading="lazy" src="{{ '/assets/images/methods/geneva-emotion-wheel.png' | relative_url }}" width="1015" height="1016"><figcaption>Geneva Emotion Wheel · 20개 감정 가족이 원형으로 놓이고 바깥으로 갈수록 강도가 커진다<small>Wikimedia Commons · JurijFedorov · CC BY-SA 4.0</small></figcaption></figure>
+<figure><img alt="Laban effort graph" loading="lazy" src="{{ '/assets/images/methods/laban-effort-graph.jpg' | relative_url }}" width="486" height="472"><figcaption>Laban effort graph · Space · Weight · Time · Flow 네 요인으로 움직임의 질을 적는다<small>Wikimedia Commons · Jeffrey Scott Longstaff · CC BY-SA 3.0</small></figcaption></figure>
+</div>
+
+<h3>결과</h3>
+<table class="mini-table">
+<thead><tr><th>exact 인식</th><th>감정</th></tr></thead>
+<tbody>
+<tr><td>절반 이상</td><td>Anger · Interest · Sadness</td></tr>
+<tr><td>거의 없음</td><td>Disgust · Love · Shame · Pleasure</td></tr>
+</tbody>
+</table>
+<p>정확한 이름 인식은 전체 30.5%에 그쳤지만 범주를 사분면이나 valence나 arousal로 넓힐수록 일치율이 올라가서 valence 수준에서는 65.9%가 된다. 사회적 평가는 Amusement가 가장 높고 Anger가 가장 낮았으며 긍정 표현이 부정 표현보다 sociability와 warmth에서 높았지만 animacy는 차이가 없었다. GEE 모형에서는 valence가 warmth와 likeability와 trustworthiness와 friendliness를 예측했고 arousal은 aliveness와 naturalness와 realness와 humanlikeness를 예측해서 두 차원이 서로 다른 인상을 맡고 있었다.</p>
+<figure class="dataset-photo"><img alt="감정별 선택 기반·슬라이더 기반 정확도를 정리한 논문 Table I, 부정 감정 행에 음영" loading="lazy" src="{{ '/assets/images/reachy-mini/rogel2026-table1-neg.png' | relative_url }}" width="2160" height="745"><figcaption>Table I · 왼쪽은 선택한 감정 이름을 사분면에 대응시킨 결과이고 오른쪽은 슬라이더 응답을 50에서 이분한 결과다. 부정 감정 행에 음영을 넣었다</figcaption></figure>
+<div class="two-col even">
+<figure><img alt="의도 감정별 sociability, animacy, warmth 평균 평점" loading="lazy" src="{{ '/assets/images/reachy-mini/rogel2026-fig4.png' | relative_url }}" width="2130" height="1140"><figcaption>Fig. 4 · 감정별 sociability · animacy · warmth</figcaption></figure>
+<div>
+<p>선택 기반 지표와 슬라이더 기반 지표가 서로 어긋나는 감정이 있다. 논문은 Interest를 저각성으로 분류했는데 참가자가 직접 매긴 슬라이더에서는 고각성으로 나타났고 Sadness도 같은 방향으로 어긋난다. 두 지표를 나란히 놓으면 분류 규칙이 결과를 만들어 낸 자리가 보인다.</p>
+<table class="mini-table">
+<thead><tr><th>감정</th><th>논문 분류</th><th>선택 기반 arousal 일치</th><th>슬라이더 기반</th></tr></thead>
+<tbody><tr><td>Interest</td><td>긍정 · 저각성</td><td>76.5%</td><td>14.0%</td></tr><tr><td>Sadness</td><td>부정 · 저각성</td><td>100.0%</td><td>19.0%</td></tr></tbody></table>
+</div>
+</div>
+
+<h3>메모</h3>
+<p>이 논문에서 가장 눈에 띈 것은 무엇을 성공으로 볼지에 따라 결론이 뒤집힌다는 점이다. exact만 보면 Reachy Mini의 표현 능력은 낮다고 말해야 하고 valence로 보면 세 번에 두 번은 방향이 전달된다고 말할 수 있다. 저자들은 두 결과를 같은 지표로 다루지 말라고 쓰지만 범주를 넓히면 우연 기준선도 같이 올라간다는 점은 따로 보정하지 않는다.</p>
+<p>한계는 영상 평가라서 대면 상호작용이 아니라는 것과 동작과 소리가 섞여 있어서 어느 채널이 인식을 끌어올렸는지 알 수 없다는 것이다. 자극을 만든 데모 모델 자체가 검증된 것이 아니라는 점도 결과 해석에 끼어든다.</p>
+</section>
+
+<section class="dataset-section"><h2 id="negativity"><span aria-hidden="true" class="dataset-number">03</span>부정 감정이 더 잘 읽힌 결과와 negativity bias</h2>
+<p>세미나에서 가장 많이 나온 질문이 Anger 81.8%였다. 사람은 원래 부정적인 것에 민감하니 당연하지 않냐는 반응이어서 심리학에서 이 직관이 어떤 이름으로 정리되어 있는지와 그것이 이 결과를 실제로 설명하는지를 따로 찾아봤다.</p>
+<svg class="exact-chart" viewBox="0 0 720 202" role="img" aria-label="감정별 exact 인식률 막대그래프" xmlns="http://www.w3.org/2000/svg" font-family="Pretendard, sans-serif">
+<text x="0" y="18" font-size="13" font-weight="600" fill="#222">부정 감정 · exact 인식률</text>
+<line x1="88" y1="28" x2="88" y2="184" stroke="#ccc" stroke-width="1"/>
+<g><title>Anger · exact 81.8%</title>
+<text x="80" y="49" font-size="12" text-anchor="end" fill="#444">Anger</text>
+<rect x="88" y="39" width="163.6" height="14" rx="4" fill="#222"/>
+<text x="257.6" y="50" font-size="12" fill="#333">81.8%</text></g>
+<g><title>Sadness · exact 55.0%</title>
+<text x="80" y="79" font-size="12" text-anchor="end" fill="#444">Sadness</text>
+<rect x="88" y="69" width="110.0" height="14" rx="4" fill="#9a9a9a"/>
+<text x="204.0" y="80" font-size="12" fill="#333">55.0%</text></g>
+<g><title>Fear · exact 39.8%</title>
+<text x="80" y="109" font-size="12" text-anchor="end" fill="#444">Fear</text>
+<rect x="88" y="99" width="79.6" height="14" rx="4" fill="#9a9a9a"/>
+<text x="173.6" y="110" font-size="12" fill="#333">39.8%</text></g>
+<g><title>Shame · exact 2.0%</title>
+<text x="80" y="139" font-size="12" text-anchor="end" fill="#444">Shame</text>
+<rect x="88" y="129" width="4.0" height="14" rx="4" fill="#9a9a9a"/>
+<text x="98.0" y="140" font-size="12" fill="#333">2.0%</text></g>
+<g><title>Disgust · exact 0.0%</title>
+<text x="80" y="169" font-size="12" text-anchor="end" fill="#444">Disgust</text>
+<rect x="88" y="159" width="2.0" height="14" rx="4" fill="#222"/>
+<text x="96.0" y="170" font-size="12" fill="#333">0.0%</text></g>
+<text x="370" y="18" font-size="13" font-weight="600" fill="#222">긍정 감정 · exact 인식률</text>
+<line x1="458" y1="28" x2="458" y2="184" stroke="#ccc" stroke-width="1"/>
+<g><title>Interest · exact 62.2%</title>
+<text x="450" y="49" font-size="12" text-anchor="end" fill="#444">Interest</text>
+<rect x="458" y="39" width="124.4" height="14" rx="4" fill="#9a9a9a"/>
+<text x="588.4" y="50" font-size="12" fill="#333">62.2%</text></g>
+<g><title>Amusement · exact 43.4%</title>
+<text x="450" y="79" font-size="12" text-anchor="end" fill="#444">Amusement</text>
+<rect x="458" y="69" width="86.8" height="14" rx="4" fill="#9a9a9a"/>
+<text x="550.8" y="80" font-size="12" fill="#333">43.4%</text></g>
+<g><title>Joy · exact 17.2%</title>
+<text x="450" y="109" font-size="12" text-anchor="end" fill="#444">Joy</text>
+<rect x="458" y="99" width="34.4" height="14" rx="4" fill="#9a9a9a"/>
+<text x="498.4" y="110" font-size="12" fill="#333">17.2%</text></g>
+<g><title>Pleasure · exact 3.1%</title>
+<text x="450" y="139" font-size="12" text-anchor="end" fill="#444">Pleasure</text>
+<rect x="458" y="129" width="6.2" height="14" rx="4" fill="#9a9a9a"/>
+<text x="470.2" y="140" font-size="12" fill="#333">3.1%</text></g>
+<g><title>Love · exact 1.0%</title>
+<text x="450" y="169" font-size="12" text-anchor="end" fill="#444">Love</text>
+<rect x="458" y="159" width="2.0" height="14" rx="4" fill="#9a9a9a"/>
+<text x="466.0" y="170" font-size="12" fill="#333">1.0%</text></g>
+</svg>
+
+<figcaption>Table I의 exact 열을 부정과 긍정으로 나눠 다시 그린 것 · 진한 막대는 부정 감정 안에서 가장 높은 Anger와 가장 낮은 Disgust</figcaption>
+<p>부정 다섯 개 가운데 Anger와 Sadness와 Fear는 높지만 Disgust와 Shame은 전체에서 가장 낮고 긍정 쪽 Interest와 Amusement도 높은 편이어서 부정이라는 성질만으로는 인식률을 설명할 수 없다.</p>
+<h3>Rozin &amp; Royzman (2001)의 네 유형</h3>
+<p class="publication-line"><a href="https://pdodds.w3.uvm.edu/files/papers/others/2001/rozin2001a.pdf">Negativity Bias, Negativity Dominance, and Contagion</a> · Personality and Social Psychology Review 5(4), 296–320</p>
+<div class="cards">
+<div class="card"><span class="tag">이 결과와 무관</span><strong>negative potency</strong>같은 크기의 사건이면 부정 쪽이 더 강하게 느껴진다. 인식률은 강도가 아니라 이름 맞히기라서 바로 이어지지 않는다.</div>
+<div class="card"><span class="tag">이 결과와 무관</span><strong>steeper negative gradients</strong>사건에 가까워질수록 부정성이 긍정성보다 더 가파르게 커진다. 거리나 시간 변수가 없는 설계라 적용할 자리가 없다.</div>
+<div class="card"><span class="tag yes">사회적 평가와 맞음</span><strong>negativity dominance</strong>긍정과 부정이 섞이면 단순 합보다 더 부정적으로 평가된다. Anger 하나가 sociability 2.66으로 전체 평균 4.24에서 가장 멀리 떨어져 있어서 부정 표현이 인상을 끌어내리는 폭이 긍정 표현이 끌어올리는 폭보다 크다.</div>
+<div class="card"><span class="tag yes">혼동 패턴과 맞음</span><strong>negative differentiation</strong>부정적인 것은 더 세분화되어 표상되고 부정을 묘사하는 어휘가 긍정보다 훨씬 많다. 부정 감정끼리 헷갈리기 쉽다는 예측에 가까운데 Disgust가 exact 0%인데도 valence 일치는 67.3%인 것이 그 모습이다. 부정이라는 것까지는 읽었고 Anger 같은 이웃 이름으로 흘러갔을 것이다.</div>
+</div>
+<p>Anger 인식률이 높은 이유로는 지각 편향보다 자극 쪽을 먼저 봐야 할 것 같다. Fig. 1에서 보듯 Anger 동작은 머리를 좌우로 흔들고 안테나를 빠르게 떠는 가장 운동량이 큰 동작이라서 열 개 중 가장 구별하기 쉽게 만들어져 있고 GEE에서 arousal이 aliveness와 realness를 예측한 것도 같은 방향을 가리킨다. 이 둘을 가르려면 운동량을 맞춘 긍정과 부정 동작 쌍을 비교해야 한다.</p>
+</section>
+
+<section class="dataset-section"><h2 id="elegnt"><span aria-hidden="true" class="dataset-number">04</span>Hu et al. 2025 · ELEGNT</h2>
+<p class="publication-line"><a href="https://arxiv.org/abs/2501.12493">Hu, Huang, Sivapurapu &amp; Zhang. ELEGNT: Expressive and Functional Movement Design for Non-anthropomorphic Robot</a></p>
+<dl class="meta-box">
+<div><dt>출처</dt><dd>arXiv:2501.12493 · 2025.01</dd></div>
+<div><dt>소속</dt><dd>Apple</dd></div>
+<div><dt>로봇</dt><dd>램프형 · 6자유도 WidowX 250S 팔</dd></div>
+<div><dt>참가자</dt><dd>유효 21명 · 저자 소속 조직 내부</dd></div>
+<div><dt>설계</dt><dd>피험자 내 · 영상 · 과제 6 × 조건 2</dd></div>
+<div><dt>평가</dt><dd>인상 6항목 0–100</dd></div>
+</dl>
+<p>Rogel 논문의 관련 연구에서 비인간형 플랫폼을 따라가다 찾은 논문이다. Rogel이 어떤 감정인지 읽히는가를 묻는다면 ELEGNT는 표현 동작이 로봇을 어떻게 보이게 하는가를 묻기 때문에 둘을 나란히 놓고 읽을 수 있었다.</p>
+<div class="dataset-use"><h3>요약</h3><dl>
+<div><dt>로봇</dt><dd>Pixar의 Luxo Jr.를 닮은 램프로 6자유도 팔 위에 LED와 소형 프로젝터와 카메라를 넣은 머리를 얹었다</dd></div>
+<div><dt>설계 어휘</dt><dd>표현 동작을 kinesics와 proxemics로 나눈다. kinesics는 끄덕임이나 숙이기 같은 공간적 제스처와 속도나 멈춤 같은 시간적 성질이고 proxemics는 대상을 향하기와 접근이나 회피다. 보상을 R = F + γE로 쓰지만 개념 틀이고 구현된 최적화기는 없다</dd></div>
+<div><dt>연구</dt><dd>여섯 과제를 기능 동작(F)과 표현 동작(E)으로 비교했다. 과제는 기능 지향 셋과 사회 지향 셋이고 human-likeness·intelligence·character·engagement·connection·willingness를 0–100으로 매겼다</dd></div>
+<div><dt>결과</dt><dd>평균은 E 56.16 대 F 28.77로 사회 지향 과제에서는 여섯 지표 모두 유의했고 기능 지향 과제에서는 여러 지표에서 차이가 없었다. 자유 응답에서는 기능 과제 중의 표현이 주의를 흩뜨린다는 말과 동작이 목소리 타이밍과 맞아야 한다는 말과 모터 소음 이야기가 나왔다</dd></div>
+</dl></div>
+<figure class="dataset-photo"><img alt="여섯 과제에 걸친 표현 동작 조건과 기능 동작 조건의 평점 비교" loading="lazy" src="{{ '/assets/images/elegnt/hu2025-fig7.jpg' | relative_url }}" width="2200" height="1013"><figcaption>Fig. 7 · 파랑이 표현 동작이고 분홍이 기능 동작이며 왼쪽 셋이 기능 지향 과제이고 오른쪽 셋이 사회 지향 과제다</figcaption></figure>
+<h3>Rogel 2026과 나란히</h3>
+<table class="compare-table">
+<thead><tr><th></th><th>Rogel et al. 2026</th><th>ELEGNT</th></tr></thead>
+<tbody>
+<tr><th>질문</th><td>어떤 감정으로 읽히는가</td><td>표현 동작이 로봇을 어떻게 보이게 하는가</td></tr>
+<tr><th>로봇</th><td>Reachy Mini · 구매 가능</td><td>램프형 팔 · 연구실 제작 단일 기기</td></tr>
+<tr><th>자극 맥락</th><td>과제 없는 10초 클립</td><td>여섯 과제 안의 동작</td></tr>
+<tr><th>참가자</th><td>100명 · 외부 모집</td><td>21명 · 내부 모집</td></tr>
+<tr><th>측정</th><td>감정 이름 · VA · 사회적 평가</td><td>인상 6항목</td></tr>
+<tr><th>통계</th><td>참가자 군집 모형 · GEE</td><td>피험자 내인데 Welch t 검정<sup class="note-ref"><a aria-label="주석 9: Welch t 검정" href="#note-welch" id="note-welch-ref" role="doc-noteref">[9]</a></sup> · 두 조건 SD가 27.15로 동일</td></tr>
+</tbody>
+</table>
+<p>Rogel에서 animacy가 감정에 따라 거의 변하지 않은 것과 ELEGNT에서 human-likeness가 가장 크게 오른 것은 언뜻 반대로 보이지만 전자는 감정 사이의 비교이고 후자는 표현 유무의 비교라서 충돌하지 않는다. 더 중요한 것은 ELEGNT가 표현의 이득이 과제 맥락에 달렸다고 보여 준다는 점인데 Rogel의 자극은 맥락 없는 클립이라서 같은 표현을 과제 안에 넣으면 인식률과 인상이 달리 나올 수 있다. 약점은 둘이 닮아서 둘 다 영상 평가이고 저자가 만든 자극을 저자가 평가했다.</p>
+</section>
+
+<section class="dataset-section"><h2 id="likinggap"><span aria-hidden="true" class="dataset-number">05</span>추천받은 논문 · Wolf et al. 2021 · liking gap</h2>
+<p class="publication-line"><a href="https://doi.org/10.1177/0956797620980754">Wolf, Nafe &amp; Tomasello. The Development of the Liking Gap: Children Older Than 5 Years Think That Partners Evaluate Them Less Positively Than They Evaluate Their Partners</a></p>
+<dl class="meta-box">
+<div><dt>출처</dt><dd>Psychological Science 32(5), 789–798 · 2021</dd></div>
+<div><dt>소속</dt><dd>Duke · Max Planck Institute for Evolutionary Anthropology</dd></div>
+<div><dt>대상</dt><dd>4–11세 아동 241명 · 서로 모르는 짝</dd></div>
+<div><dt>과제</dt><dd>둘이 5분 동안 탑 쌓기</dd></div>
+<div><dt>측정</dt><dd>7점 웃는 얼굴 척도 · 3문항 × 2</dd></div>
+<div><dt>통계</dt><dd>베이즈 회귀 · 95% HDI<sup class="note-ref"><a aria-label="주석 10: HDI" href="#note-hdi" id="note-hdi-ref" role="doc-noteref">[10]</a></sup> · ICC<sup class="note-ref"><a aria-label="주석 11: ICC" href="#note-icc" id="note-icc-ref" role="doc-noteref">[11]</a></sup>로 짝 비독립성 점검</dd></div>
+</dl>
+<div class="two-col">
+<div>
+<p>연구실 동기가 추천해 준 논문이다. 받은 파일 이름은 Boothby et al. (2018)의 제목이었는데 내용은 그 후속 발달 연구였다. liking gap은 처음 만난 상대를 내가 좋아하는 정도보다 상대가 나를 덜 좋아할 것이라고 믿는 현상으로 Boothby 등이 성인에게서 보였고 이 논문은 그것이 아이들에게서 언제 생기는지를 묻는다.</p>
+<p>아이들은 상대를 얼마나 좋아하는지 세 문항과 상대가 나를 얼마나 좋아할지 세 문항에 답했으며 두 묶음의 차이가 liking gap 점수다. 4세는 차이가 없었고 5세부터 양수로 나타나 11세까지 커졌는데 4세에서 5세로 가면서는 상대를 좋아하는 정도가 올라서 벌어지고 5세부터 11세까지는 상대가 나를 좋아할 것이라는 추정이 내려가서 벌어진다. 저자들은 후자를 상대도 좋은 인상을 남기려 한다는 것을 이해하게 되는 2차 마음 이론<sup class="note-ref"><a aria-label="주석 12: 2차 마음 이론" href="#note-tom" id="note-tom-ref" role="doc-noteref">[12]</a></sup>의 발달과 연결한다.</p>
+<p>Rogel과 ELEGNT는 사람이 로봇을 어떻게 보는지만 묻는데 이 논문은 상대가 나를 어떻게 볼지에 대한 추정도 측정할 수 있는 변수라는 것을 보여 준다.</p>
+</div>
+<figure><img alt="4세부터 11세까지 연령별 liking gap 점수의 베이즈 95% 최고밀도구간" loading="lazy" src="{{ '/assets/images/wolf2021/wolf2021-fig2.png' | relative_url }}" width="1425" height="1170"><figcaption>Fig. 2 · 연령별 liking gap 점수의 95% HDI · 4세만 0을 포함한다</figcaption></figure>
+</div>
+</section>
+
+<section class="dataset-section"><h2 id="methods"><span aria-hidden="true" class="dataset-number">06</span>저장해 둘 연구 기법</h2>
+<p>네 논문에서 내 실험에 바로 가져다 쓸 만한 것만 다섯 개 추렸다.</p>
+<table class="tech-table">
+<thead><tr><th>기법</th><th>무엇인가</th><th>어디서</th><th>언제 쓸까</th></tr></thead>
+<tbody>
+<tr><td>Geneva Emotion Wheel</td><td>감정 이름과 강도를 한 번에 받는 원형 응답 형식</td><td>Rogel 2026</td><td>로봇 표현이 어떤 감정으로 읽히는지 물을 때</td></tr>
+<tr><td>다수준 일치 코딩</td><td>exact · quadrant · valence · arousal 네 수준에서 일치를 따로 세고 선택 기반과 슬라이더 기반을 둘 다 보고한다</td><td>Rogel 2026</td><td>정확한 이름 인식과 대략적 정서 전달을 분리할 때</td></tr>
+<tr><td>참가자 군집 표준오차 · GEE</td><td>한 사람의 반복 응답을 군집으로 처리하고 두 예측 변수를 동시에 넣는다</td><td>Rogel 2026</td><td>피험자 내 설계를 시행 단위로 모형화할 때</td></tr>
+<tr><td>사전 검정력 분석</td><td>주 지표의 기대 효과 크기로 표본 수를 미리 계산하고 탈락분을 더해 모집한다</td><td>Rogel 2026</td><td>모집 전에</td></tr>
+<tr><td>척도 이해 확인 문항</td><td>무관한 연습 문항으로 척도 이해를 확인하고 어긋나면 제외 표시를 남긴다</td><td>Wolf 2021</td><td>아동이나 비전문 참가자에게 평정 척도를 쓸 때</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="dataset-section"><h2 id="closing"><span aria-hidden="true" class="dataset-number">07</span>마무리하며</h2>
+<p>세미나 때문에 읽기 시작한 논문인데 끝나고 보니 결과보다 측정 방식이 더 오래 남았다. 같은 응답을 exact로 세느냐 valence로 세느냐에 따라 로봇이 감정을 전달한다는 말이 맞기도 하고 틀리기도 한다는 걸 표로 직접 확인하고 나니 내 실험에서도 무엇을 성공이라고 부를지 먼저 못 박아 두지 않으면 나중에 유리한 지표를 고르게 될 것 같다는 생각이 들었다.</p>
+<p>Anger가 잘 읽힌 걸 보고 처음엔 사람이 부정적인 것에 민감해서 그렇다고 넘어갔는데 막상 문헌을 찾아보니 그 직관이 그대로 맞지는 않았다. 동작이 제일 크고 빨라서라는 설명이 더 그럴듯했고 심리학 쪽 개념은 인식률보다 인상 평가에 더 잘 붙었다. 당연하다고 생각한 걸 문헌으로 확인해 보는 과정이 이번에 제일 재미있었다.</p>
+<p>ELEGNT를 읽고 나서는 표현을 맥락 없이 평가하는 게 얼마나 반쪽짜리인지 알게 됐고 동기가 추천해 준 liking gap 논문 덕에 로봇이 나를 어떻게 보는 것 같은지도 물어볼 수 있겠다는 생각을 하게 됐다. 연구실에서 Reachy Mini를 쓰게 되면 이 세 가지를 들고 시작하고 싶다.</p>
+</section>
+
+<aside aria-label="주석" class="article-footnotes">
+<h3>주석</h3>
+<ol>
+<li id="note-vlm" tabindex="-1"><strong>VLM · Vision-Language Model</strong><br/>이미지와 글을 함께 입력받아 글을 내는 모델<br/>여기서는 얼굴과 제스처 토큰을 받아 로봇의 반응 동작을 고른다 <a aria-label="VLM이 언급된 본문으로 돌아가기" class="note-back" href="#note-vlm-ref" role="doc-backlink">↩</a></li>
+<li id="note-prolific" tabindex="-1"><strong>Prolific</strong><br/>온라인 실험 참가자 모집 플랫폼<br/>선별 조건을 걸고 시간당 보수를 정해 모집하며 심리학 온라인 실험에서 널리 쓴다 <a aria-label="Prolific이 언급된 본문으로 돌아가기" class="note-back" href="#note-prolific-ref" role="doc-backlink">↩</a></li>
+<li id="note-gew" tabindex="-1"><strong>GEW · Geneva Emotion Wheel</strong><br/>Scherer가 만든 감정 응답 형식<br/>20개 감정 가족을 valence(좌우)와 통제감(상하) 축의 원형에 배치하고 강도를 동심원으로 고르며 가운데에 None과 Other가 있다<br/><a href="https://www.unige.ch/cisa/gew">Geneva Emotion Wheel 소개</a> <a aria-label="GEW가 언급된 본문으로 돌아가기" class="note-back" href="#note-gew-ref" role="doc-backlink">↩</a></li>
+<li id="note-va" tabindex="-1"><strong>valence · arousal</strong><br/>valence는 불쾌에서 유쾌까지의 축이고 arousal은 가라앉음에서 들뜸까지의 축<br/>Russell의 circumplex 모형에서 감정을 두 축의 좌표로 보는 방식이며 여기서는 0–100 슬라이더로 받는다 <a aria-label="valence · arousal이 언급된 본문으로 돌아가기" class="note-back" href="#note-va-ref" role="doc-backlink">↩</a></li>
+<li id="note-lma" tabindex="-1"><strong>Laban Movement Analysis</strong><br/>무용 기보법에서 나온 움직임 기술 체계<br/>Body · Effort · Shape · Space 네 범주 가운데 effort가 움직임의 질을 Space · Weight · Time · Flow 네 요인으로 적는다 <a aria-label="Laban Movement Analysis가 언급된 본문으로 돌아가기" class="note-back" href="#note-lma-ref" role="doc-backlink">↩</a></li>
+<li id="note-gee" tabindex="-1"><strong>GEE · Generalized Estimating Equations</strong><br/>한 사람에게서 나온 여러 응답의 상관을 군집 구조로 처리하면서 모집단 평균 효과를 추정하는 회귀 방법 <a aria-label="GEE가 언급된 본문으로 돌아가기" class="note-back" href="#note-gee-ref" role="doc-backlink">↩</a></li>
+<li id="note-dz" tabindex="-1"><strong>dz · Cohen's dz</strong><br/>짝지은 비교에서 차이 점수의 평균을 그 표준편차로 나눈 효과 크기<br/>.2가 작고 .5가 중간이다 <a aria-label="dz가 언급된 본문으로 돌아가기" class="note-back" href="#note-dz-ref" role="doc-backlink">↩</a></li>
+<li id="note-rosas" tabindex="-1"><strong>RoSAS · HRIES</strong><br/>RoSAS(Robotic Social Attributes Scale)는 warmth · competence · discomfort 세 차원의 18문항 척도<br/>HRIES(Human-Robot Interaction Evaluation Scale)는 sociability · agency · animacy · disturbance를 잰다<br/>논문은 두 척도에서 warmth 관련 네 문항과 animacy 네 문항만 가져왔다 <a aria-label="RoSAS · HRIES가 언급된 본문으로 돌아가기" class="note-back" href="#note-rosas-ref" role="doc-backlink">↩</a></li>
+<li id="note-welch" tabindex="-1"><strong>Welch t 검정</strong><br/>분산이 다른 두 독립 집단의 평균을 비교하는 t 검정<br/>같은 사람이 두 조건에 모두 답한 자료는 짝지은 t 검정이나 혼합 모형이 맞다 <a aria-label="Welch t 검정이 언급된 본문으로 돌아가기" class="note-back" href="#note-welch-ref" role="doc-backlink">↩</a></li>
+<li id="note-hdi" tabindex="-1"><strong>HDI · Highest Density Interval</strong><br/>사후 분포에서 확률 밀도가 가장 높은 95% 구간<br/>빈도주의 신뢰구간과 달리 모수가 그 안에 있을 확률로 읽을 수 있다 <a aria-label="HDI가 언급된 본문으로 돌아가기" class="note-back" href="#note-hdi-ref" role="doc-backlink">↩</a></li>
+<li id="note-icc" tabindex="-1"><strong>ICC · Intraclass Correlation Coefficient</strong><br/>같은 짝 안의 두 점수가 얼마나 닮았는지 나타내는 값<br/>높으면 짝 단위로 분석해야 한다 <a aria-label="ICC가 언급된 본문으로 돌아가기" class="note-back" href="#note-icc-ref" role="doc-backlink">↩</a></li>
+<li id="note-tom" tabindex="-1"><strong>2차 마음 이론</strong><br/>다른 사람이 어떤 믿음을 갖는지 아는 것이 1차 마음 이론<br/>다른 사람이 나의 믿음에 대해 어떤 믿음을 갖는지 아는 것이 2차 마음 이론이며 6세 전후에 나타난다 <a aria-label="2차 마음 이론이 언급된 본문으로 돌아가기" class="note-back" href="#note-tom-ref" role="doc-backlink">↩</a></li>
+</ol>
+</aside>
+</div>
